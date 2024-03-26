@@ -37,7 +37,7 @@ on:
         default: Test
       BRANDS_ACTION:
         description: "Brands action: Include or exclude brands"
-        type: choice,
+        type: choice
         default: By Tenant Group
         options:
           - Include
