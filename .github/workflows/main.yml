@@ -71,5 +71,5 @@ jobs:
           fi
           echo "target_brands=$brands" >> $GITHUB_ENV
       - name: Echo brands
-        run: "echo ${{ env.brands }}"
+        run: echo '${{ env.brands }}'
 
