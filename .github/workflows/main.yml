@@ -40,6 +40,10 @@ on:
         default: Asd
         type: string
         required: false
+      BRANDS_EXCLUDE_DISREGARD:
+        description: "Forget about it"
+        default: false
+        type: boolean
       DEPLOYMENT_CHANNEL:
         type: choice
         description: "Deployment Channel"
