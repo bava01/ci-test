@@ -1,0 +1,54 @@
+name: CI
+run-name: CI - Deploy ${{ inputs.ENVIRONMENT }} ${{ inputs.DEPLOYMENT_CHANNEL }}
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - .github/**
+  workflow_dispatch:
+    inputs:
+      RFC:
+        description: "RFC ( RFC should be provided for Alpha & Prod )"
+        type: string
+        required: false
+      ENVIRONMENT:
+        type: environment
+        description: "Environment"
+        default: Test
+      TENANTS:
+        type: choice
+        description: "Tenant Group"
+        default: All
+        options:
+          - Betsson Group
+          - Claymore Group
+          - Throne Gaming
+          - US Brands
+          - Zecure
+          - Prozone
+          - Hommerson
+          - Internal
+          - All
+      BRANDS:
+        description: "Provide specific brand with platform prefix to override Tenants eg: (m-firestorm d-ibet)"
+        type: string
+        required: false
+      BRANDS_EXCLUDE:
+        description: "Exclude brands eg: (m-firestorm d-ibet)"
+        default: m-nordicbet d-nordicbet m-betssongr d-betssongr m-betssondk d-betssondk m-betssonarcb d-betssonarcb
+        type: string
+        required: false
+      DEPLOYMENT_CHANNEL:
+        type: choice
+        description: "Deployment Channel"
+        default: Cloud
+        options:
+          - Cloud
+          - Mfe
+          - All
+      UI_UPLIFT:
+        type: boolean
+        description: "Build with gen2 styles"
+        default: false
