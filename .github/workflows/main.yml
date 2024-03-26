@@ -35,17 +35,19 @@ on:
         description: "Environment"
         type: environment
         default: Test
+      BRANDS:
+        description: "Brands: (use \"-\" if you want this to be empty)"
+        default: m-nordicbet d-nordicbet
+        type: string
+        required: false
       BRANDS_ACTION:
+        description: "What should I do with 👆 these brands?"
         type: choice
         default: Exclude
         options:
           - Include
           - Exclude
-          - By Tenant Group
-      BRANDS:
-        default: m-nordicbet d-nordicbet
-        type: string
-        required: false
+          - Nothing (By Tenant Group)
       DEPLOYMENT_CHANNEL:
         type: choice
         description: "Deployment Channel"
