@@ -60,16 +60,16 @@ on:
 jobs:
   get_brands:
     runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
-    env:
-      brands: ${{ inputs.BRANDS }}
     steps:
-      - name: "Empty brand list"
-        if: ${{ inputs.BRANDS_ACTION == 'Nothing (By Tenant Group)' || inputs.BRANDS == '-' }}
-        env:
-          brands: ''
-        run: echo ${{ env.brands }}
-      - name: "DO NOT Empty brand list"
-        if: ${{ inputs.BRANDS_ACTION != 'Nothing (By Tenant Group)' && inputs.BRANDS != '-' }}
-        run: echo ${{ env.brands }}
-      - name: "Brands"
-        run: echo ${{ env.brands }}
+      - name: Get brand list
+        shell: "bash"
+        run: |
+          if [[ '${{ inputs.BRANDS }}' == '-' || '${{ inputs.BRANDS_ACTION }}' == 'Nothing (By Tenant Group)' ]]; then
+              brands = ''
+          else
+              brands = '${{ inputs.BRANDS }}'
+          fi
+          echo "target_brands=$brands" >> $GITHUB_ENV
+      - name: Echo brands
+        run: "echo ${{ env.brands }}"
+
