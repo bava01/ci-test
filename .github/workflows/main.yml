@@ -38,11 +38,11 @@ on:
       BRANDS_ACTION:
         description: "Brands action: Include or exclude brands"
         type: choice,
-        default: "By Tenant Group"
+        default: By Tenant Group
         options:
-          - "Include"
-          - "Exclude"
-          - "By Tenant Group"
+          - Include
+          - Exclude
+          - By Tenant Group
       BRANDS:
         description: "Include or exclude brands (will be disregarded if Brands action is \"By Tenant Group\")"
         default: m-nordicbet d-nordicbet
