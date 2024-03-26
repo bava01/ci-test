@@ -21,7 +21,16 @@ on:
         type: choice
         description: "Tenant Group"
         default: brand1
-        options: ${{ vars.BRAND }}
+        options:
+         - Betsson Group
+          - Claymore Group
+          - Throne Gaming
+          - US Brands
+          - Zecure
+          - Prozone
+          - Hommerson
+          - Internal
+          - All
       BRANDS:
         description: "Provide specific brand with platform prefix to override Tenants eg: (m-firestorm d-ibet)"
         type: string
