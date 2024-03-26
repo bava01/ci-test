@@ -68,5 +68,8 @@ jobs:
         env:
           brands: ''
         run: echo ${{ env.brands }}
-      - name: "NOT Empty brand list"
+      - name: "DO NOT Empty brand list"
+        if: ${{ inputs.BRANDS_ACTION != 'Nothing (By Tenant Group)' && inputs.BRANDS != '-' }}
+        run: echo ${{ env.brands }}
+      - name: "Brands"
         run: echo ${{ env.brands }}
