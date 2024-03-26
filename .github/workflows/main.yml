@@ -36,7 +36,7 @@ on:
         type: environment
         default: Test
       BRANDS:
-        description: "Brands:<br>(use \"-\" if you want this to be empty)"
+        description: "Brands: (use \"-\" if you want this to be empty)"
         default: m-nordicbet d-nordicbet
         type: string
         required: false
