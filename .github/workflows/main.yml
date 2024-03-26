@@ -1,6 +1,9 @@
 name: CI
 run-name: CI - Deploy ${{ inputs.ENVIRONMENT }} ${{ inputs.DEPLOYMENT_CHANNEL }}
 
+env:
+  brand: Firetruck
+
 on:
   push:
     branches:
@@ -33,7 +36,7 @@ on:
         default: Test
       BRANDS_EXCLUDE:
         description: "Exclude brands eg: (m-firestorm d-ibet)"
-        default: ${{ secrets.brand }}
+        default: ${{ env.brand }}
         type: string
         required: false
       DEPLOYMENT_CHANNEL:
