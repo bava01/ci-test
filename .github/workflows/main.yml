@@ -33,7 +33,7 @@ on:
         default: Test
       BRANDS_EXCLUDE:
         description: "Exclude brands eg: (m-firestorm d-ibet)"
-        default: ${{ vars.BRAND }}
+        default: ${{ secrets.brand }}
         type: string
         required: false
       DEPLOYMENT_CHANNEL:
