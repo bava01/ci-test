@@ -68,7 +68,7 @@ jobs:
           else
               brands='${{ inputs.BRANDS }}'
           fi
-          echo "${{ brands }}" >> $GITHUB_ENV
+          echo "${{ $brands }}" >> $GITHUB_ENV
       - name: Echo brands
         run: |
           echo "Brands: ${{ env.target_brands }}"
