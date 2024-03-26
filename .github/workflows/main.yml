@@ -35,15 +35,19 @@ on:
         description: "Environment"
         type: environment
         default: Test
-      BRANDS_EXCLUDE:
-        description: "Exclude brands eg: (m-firestorm d-ibet)"
-        default: Asd
+      BRANDS_ACTION:
+        description: "Brands action: Include or exclude brands"
+        type: choice,
+        default: "By Tenant Group"
+        options:
+          - "Include"
+          - "Exclude"
+          - "By Tenant Group"
+      BRANDS:
+        description: "Include or exclude brands (will be disregarded if Brands action is \"By Tenant Group\")"
+        default: m-nordicbet d-nordicbet
         type: string
         required: false
-      BRANDS_EXCLUDE_DISREGARD:
-        description: "Forget about it"
-        default: false
-        type: boolean
       DEPLOYMENT_CHANNEL:
         type: choice
         description: "Deployment Channel"
@@ -67,4 +71,4 @@ jobs:
         if: ${{ env.DAY_OF_WEEK == 'Monday' }}
         run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
         env:
-          First_Name: Mona ${{ inputs.BRANDS_EXCLUDE }}
+          First_Name: Mona
