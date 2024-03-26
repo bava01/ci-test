@@ -3,6 +3,7 @@ run-name: CI - Deploy ${{ inputs.ENVIRONMENT }} ${{ inputs.DEPLOYMENT_CHANNEL }}
 
 env:
   brand: Firetruck
+  DAY_OF_WEEK: Monday
 
 on:
   push:
@@ -51,9 +52,6 @@ on:
         type: boolean
         description: "Build with gen2 styles"
         default: false
-
-env:
-  DAY_OF_WEEK: Monday
 
 jobs:
   greeting_job:
