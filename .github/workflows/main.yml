@@ -1,10 +1,6 @@
 name: CI
 run-name: CI - Deploy ${{ inputs.ENVIRONMENT }} ${{ inputs.DEPLOYMENT_CHANNEL }}
 
-env:
-  brand: Firetruck
-  DAY_OF_WEEK: Monday
-
 on:
   push:
     branches:
@@ -62,13 +58,14 @@ on:
         default: false
 
 jobs:
-  greeting_job:
+  get_brands:
     runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     env:
-      Greeting: Hello
+      brands: $inputs.BRANDS
     steps:
-      - name: "Say Hello Mona it's Monday"
-        if: ${{ env.DAY_OF_WEEK == 'Monday' }}
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+      - name: "Empty brand list"
+        if: ${{ inputs.BRANDS_ACTION == 'Nothing (By Tenant Group)' || inputs.BRANDS == '-' }}
         env:
-          First_Name: Mona
+          brands: ''
+      - name: asd
+        run: echo "$env.brands"
