@@ -64,11 +64,10 @@ jobs:
       - name: Get brand list
         run: |
           if [[ '${{ inputs.BRANDS }}' == '-' || '${{ inputs.BRANDS_ACTION }}' == 'Nothing (By Tenant Group)' ]]; then
-              brands=''
+              echo "brands=''" >> $GITHUB_ENV
           else
-              brands='${{ inputs.BRANDS }}'
+              echo "brands=${{ inputs.BRANDS }}" >> $GITHUB_ENV
           fi
-          echo "brands=$brands" >> $GITHUB_ENV
       - name: Echo brands
         run: |
           echo "Brands: ${{ env.brands }}"
