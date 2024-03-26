@@ -13,10 +13,6 @@ on:
         description: "RFC ( RFC should be provided for Alpha & Prod )"
         type: string
         required: false
-      ENVIRONMENT:
-        type: environment
-        description: "Environment"
-        default: Test
       TENANTS:
         type: choice
         description: "Tenant Group"
