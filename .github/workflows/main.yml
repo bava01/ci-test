@@ -37,7 +37,7 @@ on:
         default: Test
       BRANDS_EXCLUDE:
         description: "Exclude brands eg: (m-firestorm d-ibet)"
-        default: ${{ env.brand }}
+        default: Asd
         type: string
         required: false
       DEPLOYMENT_CHANNEL:
@@ -63,4 +63,4 @@ jobs:
         if: ${{ env.DAY_OF_WEEK == 'Monday' }}
         run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
         env:
-          First_Name: Mona
+          First_Name: Mona ${{ inputs.BRANDS_EXCLUDE }}
