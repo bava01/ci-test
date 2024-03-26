@@ -34,7 +34,7 @@ on:
       BRANDS:
         description: "Provide specific brand with platform prefix to override Tenants eg: (m-firestorm d-ibet)"
         type: choice
-        options: ${{ vars.brand }}
+        options: ${{ vars.BRAND }}
       BRANDS_EXCLUDE:
         description: "Exclude brands eg: (m-firestorm d-ibet)"
         default: m-nordicbet d-nordicbet m-betssongr d-betssongr m-betssondk d-betssondk m-betssonarcb d-betssonarcb
