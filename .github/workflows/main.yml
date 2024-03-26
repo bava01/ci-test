@@ -33,7 +33,7 @@ on:
         default: Test
       BRANDS_EXCLUDE:
         description: "Exclude brands eg: (m-firestorm d-ibet)"
-        default: m-nordicbet d-nordicbet m-betssongr d-betssongr m-betssondk d-betssondk m-betssonarcb d-betssonarcb
+        default: ${{ vard.BRAND }}
         type: string
         required: false
       DEPLOYMENT_CHANNEL:
