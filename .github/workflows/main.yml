@@ -1,5 +1,5 @@
 name: CI
-run-name: CI - Deploy ${{ inputs.ENVIRONMENT }} ${{ inputs.DEPLOYMENT_CHANNEL }}
+run-name: CI - Deploy ${{ inputs.ENVIRONMENT }} ${{ inputs.DEPLOYMENT_CHANNEL }} - ${{ inputs.BRANDS }} / ${{ inputs.BRANDS_ACTION }}
 
 on:
   push:
