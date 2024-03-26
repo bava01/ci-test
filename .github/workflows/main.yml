@@ -20,9 +20,9 @@ on:
       TENANTS:
         type: choice
         description: "Tenant Group"
-        default: brand1
+        default: All
         options:
-         - Betsson Group
+          - Betsson Group
           - Claymore Group
           - Throne Gaming
           - US Brands
