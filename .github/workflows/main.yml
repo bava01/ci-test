@@ -63,7 +63,7 @@ jobs:
     steps:
       - name: Get brand list
         run: |
-          if [ '${{ inputs.BRANDS }}' == '-' || '${{ inputs.BRANDS_ACTION }}' == 'Nothing (By Tenant Group)' ]; then
+          if [[ '${{ inputs.BRANDS }}' == '-' || '${{ inputs.BRANDS_ACTION }}' == 'Nothing (By Tenant Group)' ]]; then
               brands=''
           else
               brands='${{ inputs.BRANDS }}'
