@@ -66,7 +66,7 @@ jobs:
           if [[ '${{ inputs.BRANDS }}' == '-' || '${{ inputs.BRANDS_ACTION }}' == 'Nothing (By Tenant Group)' ]]; then
               echo "brands=''" >> $GITHUB_ENV
           else
-              echo "brands=${{ inputs.BRANDS }}" >> $GITHUB_ENV
+              echo "brands='${{ inputs.BRANDS }}'" >> $GITHUB_ENV
           fi
       - name: Echo brands
         run: |
