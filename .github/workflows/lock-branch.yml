@@ -26,5 +26,5 @@ jobs:
     steps:
       - name: "Was it okay"
         run: |
-          echo ${{check-branch.steps.asdasd}}
+          echo ${{jobs.check-branch.steps.asdasd}}
     
