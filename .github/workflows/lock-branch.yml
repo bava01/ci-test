@@ -13,7 +13,7 @@ jobs:
 
   check-branch:
     name: Check Branch
-    runs-on: [ self-hosted, ubuntu-latest ]
+    runs-on: [ ubuntu-latest ]
     outputs:
       isBranchCorrect: ${{steps.asdasd}}
     steps:
@@ -24,7 +24,7 @@ jobs:
 
   lock-branch:
     name: Lock ${{inputs.BRANCH}} branch
-    runs-on: [ self-hosted, ubuntu-latest ]
+    runs-on: [ ubuntu-latest ]
     needs: check-branch
     steps:
       - name: "Was it okay"
