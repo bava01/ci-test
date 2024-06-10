@@ -14,6 +14,8 @@ jobs:
   check-branch:
     name: Check Branch
     runs-on: [ self-hosted, ubuntu-latest ]
+    outputs:
+      isBranchCorrect: ${{steps.asdasd}}
     steps:
       - name: "Check if branch is master or release"
         id: asdasd
@@ -23,8 +25,8 @@ jobs:
   lock-branch:
     name: Lock ${{inputs.BRANCH}} branch
     runs-on: [ self-hosted, ubuntu-latest ]
+    needs: check-branch
     steps:
       - name: "Was it okay"
         run: |
-          echo ${{jobs.check-branch.steps.asdasd}}
-    
+          echo ${{needs.check-branch.outputs.isBranchCorrect}}
