@@ -20,7 +20,7 @@ jobs:
       - name: "Check if branch is master or release"
         id: asdasd
         run: |
-          node -e "console.log(${{inputs.BRANCH}}.startsWith('master') || ${{inputs.BRANCH}}.startsWith('release'))";
+          node -e "console.log('${{inputs.BRANCH}}'.startsWith('master') || '${{inputs.BRANCH}}'.startsWith('release'))";
 
   lock-branch:
     name: Lock ${{inputs.BRANCH}} branch
