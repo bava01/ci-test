@@ -1,1 +1,30 @@
-lock
+name: Lock Branch
+run-name: Lock Branch ${{ inputs.BRANCH }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      BRANCH:
+        description: "Branch"
+        type: string
+        required: false
+
+jobs:
+
+  check-branch:
+    name: Check Branch
+    runs-on: [ self-hosted, ubuntu-latest ]
+    steps:
+      - name: "Check if branch is master or release"
+        id: asdasd
+        run: |
+          node -e "console.log(${{BRANCH}}.startsWith('master') || ${{BRANCH}}.startsWith('release'))";
+
+  lock-branch:
+    name: Lock ${{inputs.BRANCH}} branch
+    runs-on: [ self-hosted, ubuntu-latest ]
+    steps:
+      - name: "Was it okay"
+        run: |
+          echo ${{check-branch.steps.asdasd}}
+    
