@@ -1,6 +1,14 @@
 name: "Tenant and Brand Parser"
 description: "Parse tenants or brands (If brand/platform specified it should override the Tenant Group defaults)"
 
+on:
+  workflow_dispatch:
+    inputs:
+      GO:
+        description: "RFC ( RFC should be provided for Alpha & Prod )"
+        type: string
+        required: false
+        
 outputs:
   BRANDS:
     description: "Parsed brands to run command"
