@@ -1,0 +1,23 @@
+name: "Tenant and Brand Parser"
+description: "Parse tenants or brands (If brand/platform specified it should override the Tenant Group defaults)"
+
+outputs:
+  BRANDS:
+    description: "Parsed brands to run command"
+    value: ${{ steps.brand-parser.outputs.parsedBrands }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Parse Brands
+      id: brand-parser
+      env:
+        TENANTS: All
+        BRANDS: d-firestorm m-firestorm d-nordicbet m-nordicbet d-betsson m-betsson
+        BRANDS_EXCLUDE: d-nordicbet m-nordicbet
+        PLATFORM: ${{ inputs.PLATFORM }}
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const script = require('./ci/brand-parser.js');
+          script({github, context, core});
