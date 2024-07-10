@@ -15,7 +15,7 @@ runs:
         TENANTS: All
         BRANDS: d-firestorm m-firestorm d-nordicbet m-nordicbet d-betsson m-betsson
         BRANDS_EXCLUDE: d-nordicbet m-nordicbet
-        PLATFORM: ${{ inputs.PLATFORM }}
+        PLATFORM: d-firestorm
       uses: actions/github-script@v7
       with:
         script: |
